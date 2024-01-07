@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import VfixLogoSvg from '@/svg/VfixLogoSvg'
 import { color } from '@/Theme'
 import Typography from '@/components/Typography'
+import Button from '@/components/Button'
 
 export default function Menu() {
     const [open, setOpen] = useState(false)
@@ -24,9 +25,7 @@ export default function Menu() {
                 <Typography variant='body2'>
                     <a href="tel:8559558349" >{`Talk to an expert: (855)955-8349`}</a>
                 </Typography>
-                <BookNow>
-                    <Typography variant='button'>Book Now</Typography>
-                </BookNow>
+                <Button variant='secondary' size='small' >Book Now</Button>
             </RightContainer>
             <HamMenu
                 $open={open}

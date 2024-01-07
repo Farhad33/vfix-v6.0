@@ -1,5 +1,7 @@
 export const color = {
     VfixBlue: '#00aeef',
+    white: '#ffffff',
+    black: '#000000'
 }
 
 export const Theme = {
@@ -19,7 +21,6 @@ export const Theme = {
             body2: "p",
             body3: "p",
             body4: "p",
-            button: "span",
             caption: "span",
             overLine: "p",
         },
@@ -38,7 +39,6 @@ export const Theme = {
             body2: "calc(0.4vw + 10px)",
             body3: "calc(0.4vw + 12px)",
             body4: "calc(0.4vw + 14px)",
-            button: "calc(0.4vw + 15px)",
             caption: "14px",
             overLine: "calc(0.5vw + 7px)",
         },
@@ -56,7 +56,9 @@ export const Theme = {
             body2: "calc(0.5vw + 16px)",
             body3: "calc(0.5vw + 20px)",
             body4: "calc(0.5vw + 24px)",
-            button: "calc(0.5vw + 20px)",
+            buttonSmall: "calc(0.4vw + 15px)",
+            buttonMedium: "calc(0.4vw + 15px)",
+            buttonLarge: "calc(0.4vw + 15px)",
             caption: "20px",
             overLine: "calc(1vw + -1px)",
         },
@@ -70,8 +72,39 @@ export const Theme = {
             body2: 400,
             body3: 400,
             body4: 400,
-            button: 400,
+            buttonSmall: "calc(0.4vw + 15px)",
+            buttonMedium: "calc(0.4vw + 15px)",
+            buttonLarge: "calc(0.4vw + 15px)",
             subline2: 400,
         },
     },
+    button: {
+        variant: {
+            primary: {
+                background: color.VfixBlue,
+                color: color.white,
+            },
+            secondary: {
+                background: color.white,
+                color: color.black,
+            },
+        },
+        size: {
+            small: {
+                fontSize: "14px",
+                fontWeight: "400",
+                padding: "5px 20px",
+            },
+            medium: {
+                fontSize: "17px",
+                fontWeight: "400",
+                padding: "10px 30px",
+            },
+            large: {
+                fontSize: "20px",
+                fontWeight: "600",
+                padding: "15px 40px",
+            },
+        },
+    }
 }

@@ -16,7 +16,7 @@ export default function Footer() {
         <FooterContainer column>
             <TopContainer column center>
                 <Typography variant='h2'>We Offer Awesome Services</Typography>
-                <Typography variant='body1'>At VFIX we believe in providing exceptional customer service, and we're always ready to answer any questions or concerns you may have.</Typography>
+                <Typography variant='body1'>At VFIX we believe in providing exceptional customer service, and we&apos;re always ready to answer any questions or concerns you may have.</Typography>
                 <Button onClick={handleBookNow} variant='secondary'>Book Now</Button>  
             </TopContainer>
             <BottomContainer>

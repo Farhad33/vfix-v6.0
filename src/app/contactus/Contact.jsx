@@ -47,7 +47,7 @@ export default function Contact() {
         <MainContainer column>
             <Typography variant='h5'>Contact Us</Typography>
             <Typography variant='h2'>Send A Message</Typography>
-            <Typography variant='body2'>Have questions about our services? Need to schedule an appointment? We're here to help. Contact us at (855) 955-8349 or fill out our online form. Our customer service team is available to assist you with your needs. </Typography>
+            <Typography variant='body2'>Have questions about our services? Need to schedule an appointment? We&apos;re here to help. Contact us at (855) 955-8349 or fill out our online form. Our customer service team is available to assist you with your needs. </Typography>
             <Form onSubmit={onSubmitForm}>
                 <Input
                     name="name"

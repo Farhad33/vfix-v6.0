@@ -46,7 +46,7 @@ jobs:
             rm -rf MyVfix-6 &&
             mv MyVfix-6-temp MyVfix-6 &&
             cd MyVfix-6 &&
-            pm2 delete MyVfix-6-temp --silent &&
-            pm2 start npm --name 'MyVfix-6-temp' -- start
+            pm2 delete MyVfix-6 --silent &&
+            pm2 start npm --name 'MyVfix-6' -- start
           "
         

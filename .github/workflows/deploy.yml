@@ -1,0 +1,52 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Archive project
+        run: |
+          tar czf MyVfix-6.tar.gz package.json next.config.js jsconfig.json src public
+
+      - name: Decode SSH key
+        env:
+          SSH_PRIVATE_KEY_BASE64: ${{ secrets.SSH_PRIVATE_KEY_BASE64 }}
+        run: |
+          echo "$SSH_PRIVATE_KEY_BASE64" | base64 --decode > $HOME/VFix.pem
+          chmod 600 ${HOME}/VFix.pem
+
+      - name: Copy project to server
+        env:
+          IP: ${{secrets.IP}}
+        run: |
+          scp -i $HOME/VFix.pem -o StrictHostKeyChecking=no MyVfix-6.tar.gz ubuntu@$IP:~
+        
+      - name: Deploy project
+        env:
+          IP: ${{secrets.IP}}
+        run: |
+          ssh -i $HOME/VFix.pem -o StrictHostKeyChecking=no ubuntu@$IP "
+            mkdir -p MyVfix-6-temp &&
+            tar xf MyVfix-6.tar.gz -C MyVfix-6-temp 2> /dev/null &&
+            rm MyVfix-6.tar.gz &&
+            cd MyVfix-6-temp &&
+            find . -name '._*' -exec rm {} \; &&
+            npm i &&
+            npm run build &&
+            cd .. &&
+            rm -rf MyVfix-6 &&
+            mv MyVfix-6-temp MyVfix-6 &&
+            cd MyVfix-6 &&
+            pm2 delete MyVfix-6-temp --silent &&
+            pm2 start npm --name 'MyVfix-6-temp' -- start
+          "
+        

@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Vetted Technicians",
+        "imageUrl": "/features/VettedTechnician.lottie",
+        "description": "Prioritizing safety, we implement an exhaustive background screening process for all our prospective technicians. This ensures we address any potential concerns before incorporating them into our team."
+    },
+    {
+        "title": "Simple Online Booking",
+        "imageUrl": "/features/OnlineBooking.lottie",
+        "description": "You can easily book an appointment online. Just click the 'Book Now' button at the top of the page and pick a date and time that works for you."
+    },
+    {
+        "title": "Hassle-Free Online Quoting",
+        "imageUrl": "/features/HassleFree.lottie",
+        "description": "Getting a quote is a breeze with our online system. Just enter your details and you'll get an estimate right away, without any fuss."
+    },
+    {
+        "title": "Guaranteed Fixed Service Prices",
+        "imageUrl": "/features/fixedPrices.lottie",
+        "description": "No surprises here! We believe in transparent pricing, so the cost you see for our services is the price you pay, without any hidden charges."
+    }
+]

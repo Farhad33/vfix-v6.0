@@ -2,6 +2,10 @@
 
 majid-ngnix
 ./majid-ngnix
+vfix-ngnix
+./vfix-ngnix
+.next
+./.next
 
 # dependencies
 /node_modules

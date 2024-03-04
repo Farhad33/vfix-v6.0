@@ -24,7 +24,7 @@ jobs:
           echo "$SSH_PRIVATE_KEY_BASE64" | base64 --decode > $HOME/VFix.pem
           chmod 600 ${HOME}/VFix.pem
 
-      - name: Copy project to server
+      - name: Copy project to vfix server
         env:
           IP: ${{secrets.IP}}
         run: |

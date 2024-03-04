@@ -30,7 +30,7 @@ jobs:
         run: |
           scp -i $HOME/VFix.pem -o StrictHostKeyChecking=no MyVfix-6.tar.gz ubuntu@$IP:~
         
-      - name: Deploy project
+      - name: Deploy project to Vfix server
         env:
           IP: ${{secrets.IP}}
         run: |

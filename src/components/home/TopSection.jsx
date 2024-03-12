@@ -10,10 +10,7 @@ export default function HomeTopSection() {
   const description = 'VFIX offers a wide range of professional home services including TV mounting, furniture assembly, and more. Experience quality, efficiency, and peace of mind with our expert technicians.'
   
   const handleBookNow = () => {
-    // https://widget.zenbooker.com/book/vfix?category=1602565264556x500558471725842400
-		// Zenbooker.showPopupWidget('https://widget.zenbooker.com/book/1602564569602x960307736376989400?embed=true')
-    // https://widget.zenbooker.com/book/1602564569602x960307736376989400?category=1602565264556x500558471725842400
-		Zenbooker.showPopupWidget('https://widget.zenbooker.com/book/1602564569602x960307736376989400?category=1602565264556x500558471725842400')
+		Zenbooker.showPopupWidget('https://widget.zenbooker.com/book/1602564569602x960307736376989400')
 	}
   
   return (

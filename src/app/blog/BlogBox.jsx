@@ -9,7 +9,7 @@ export default function BlogBox({ content }) {
         new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
 
     return (
-        <ArticleBox onClick={() => push(`/blog/${content?.id}`)}>
+        <ArticleBox href={`/blog/${content?.id}`}>
             <Thumbnail 
                 src={`https://strapi.myvfix.com${content?.attributes?.thumbnail?.data?.attributes?.url}`} 
                 alt={content?.attributes?.thumbnail?.data?.attributes?.alternativeText}
@@ -22,7 +22,7 @@ export default function BlogBox({ content }) {
     )
 }
 
-const ArticleBox = styled.div`
+const ArticleBox = styled.a`
     width: 400px;
     height: auto;
     border-radius: 15px;

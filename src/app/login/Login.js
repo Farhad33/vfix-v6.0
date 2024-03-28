@@ -16,7 +16,7 @@ export default function Login() {
     useEffect(() => {
         let jwt = sessionStorage.getItem("jwt");
         if (jwt) {
-            push.push('/admin')
+            push('/admin')
         }
     }, [])
 
@@ -24,8 +24,12 @@ export default function Login() {
         e.preventDefault()
         axios
         .post('https://strapi.myvfix.com/api/auth/local', {
-            identifier: username,
-            password: password,
+            identifier: 'majid88tv@gmail.com',
+            password: '123Abcde'
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
         .then(response => {
             sessionStorage.setItem("jwt", response.data.jwt);
@@ -46,7 +50,8 @@ export default function Login() {
                     <TextField
                         variant="outlined"
                         type="text" 
-                        label="Username" 
+                        label="Username"
+                        id="username"
                         onChange={(e) => setUsername(e.target.value) }
                         value={username}
                     />
@@ -54,12 +59,14 @@ export default function Login() {
                         variant="outlined" 
                         type="password" 
                         label="Password" 
+                        id="password"
                         onChange={(e) => setPassword(e.target.value) }
                         value={password} 
                     />
                     <SignIn
                         type="submit"
                         variant="contained"
+                        id="submit"
                     >Sign In</SignIn>
                 </Form>
             </FormContainer>

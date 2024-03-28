@@ -16,7 +16,7 @@ export default function Admin() {
     useEffect(() => {
         let jwt = sessionStorage.getItem("jwt");
         if (!jwt) {
-            push.push('/login')
+            push('/login')
         }
     }, [])
 

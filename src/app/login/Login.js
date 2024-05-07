@@ -24,8 +24,8 @@ export default function Login() {
         e.preventDefault()
         axios
         .post('https://strapi.myvfix.com/api/auth/local', {
-            identifier: 'majid88tv@gmail.com',
-            password: '123Abcde'
+            identifier: username,
+            password: password
         }, {
             headers: {
                 'Content-Type': 'application/json'

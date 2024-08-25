@@ -31,22 +31,22 @@ export default function JobsTable({ jobs }) {
     { field: 'serviceType', headerName: 'Service Type', width: 130 },
     { field: 'startEnd', headerName: 'Job Date\nTime Start - Stop', width: 145, renderCell: (params) => {
       return (
-        <div>
+        <StartEndTime>
           <div>{params.row.jobDate}</div>
           <div>{params.row.jobHour}</div>
-        </div>
+        </StartEndTime>
       )
     } },
     { field: 'totalHour', headerName: 'Total Hours Worked', width: 130 },
-    { field: 'jobPrice', headerName: 'Final price of the job', width: 130, renderCell: ({row: {jobPrice}}) =>`$${jobPrice}` },
-    { field: 'partsPrice', headerName: 'Parts', width: 70, renderCell: ({row: {partsPrice}}) =>`$${partsPrice}` },
+    { field: 'jobPrice', headerName: 'Final price of the job', width: 130, renderCell: ({row: {jobPrice}}) => jobPrice === '' ? '' : `$${jobPrice}` },
+    { field: 'partsPrice', headerName: 'Parts', width: 70, renderCell: ({row: {partsPrice}}) => partsPrice === '' ? '' : `$${partsPrice}` },
     { field: 'cash', headerName: 'Cash Received By Technician', width: 130, renderCell: ({row: {sideTech, cash}}) => {
       return sideTech.length ? <GrayCell>${cash}</GrayCell> : <div>${cash}</div>
     } },
     { field: 'reimbursement', headerName: 'Technician Reimbursment', width: 130, editable: true, renderCell: ({row: {sideTech, reimbursement}}) => {
       return sideTech.length ? <GrayCell>${reimbursement}</GrayCell> : <div>${reimbursement}</div>
     } },
-    { field: 'sideTech', headerName: 'Side Technician', width: 130, editable: true, renderCell: ({row: {sideTech}}) => `$${sideTech}`},
+    { field: 'sideTech', headerName: 'Side Technician', width: 130, editable: true, renderCell: ({row: {sideTech}}) => sideTech === '' ? '' : `$${sideTech}`},
     { field: 'finalPay', headerName: 'Technician Final Payout', width: 130, renderCell: ({row: {finalPay, isPaid}}) => (
       isPaid ? 
       <FinalPay color='green'><CheckCircleOutlineIcon />${finalPay}</FinalPay> 
@@ -120,12 +120,12 @@ const JobsContainer = styled.div`
   .MuiDataGrid-row--lastVisible {
     .MuiDataGrid-cell {
       border-bottom: 0;
-      :nth-child(5), :nth-child(7), :nth-child(10), :nth-child(13) {
+      &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(10), &:nth-child(11), &:nth-child(12), &:nth-child(14) {
         font-weight: 600;
         font-size: 18px;
-        text-align: center;
+        text-align: left;
       }
-      :nth-child(13) {
+      &:nth-child(14) {
         p {
           color: black;
         }
@@ -133,8 +133,14 @@ const JobsContainer = styled.div`
           display: none;
         }
       }
-      :nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(6), :nth-child(8), :nth-child(9), :nth-child(11), :nth-child(12), :nth-child(14) {
-        visibility: hidden;
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5),  
+      &:nth-child(9), &:nth-child(10), &:nth-child(13), &:nth-child(15) {
+        div {
+          visibility: hidden;
+        }
+        span {
+          visibility: hidden;
+        }
       }
     }
   }
@@ -261,9 +267,19 @@ const TooltipTitle = styled.div`
 `
 const FinalPay = styled.p`
   display: flex;
+  align-items: center;
   color: ${({color}) => color};
   svg {
     font-size: 1.1rem;
     margin-right: 5px;
+  }
+`
+const StartEndTime = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  div {
+    line-height: 30px;
   }
 `

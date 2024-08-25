@@ -31,7 +31,6 @@ export default function Menu({ setJobs }) {
         if(token) {
             authAPI().get('/technicians')
             .then(result => {
-                console.log('result.data.data => ', result.data.data);
                 setTechs(result.data.data) 
             })
             .catch(console.log)
@@ -100,7 +99,7 @@ export default function Menu({ setJobs }) {
             reimbursement: 0,
             hours: 0,
         }
-        console.log('data => ', data);
+
         let jobs = data.map(element => {
             let job = {}
             job.id = element.id
@@ -132,7 +131,7 @@ export default function Menu({ setJobs }) {
         sum.finalPay = sum.finalPay.toFixed(2)
         
         jobs.push({
-            id: -1,
+            id: '',
             isPaid: false,
             reimbursement: sum.reimbursement,
             sideTech: '',
@@ -142,19 +141,17 @@ export default function Menu({ setJobs }) {
             jobPrice: '',
             jobDate: '',
             jobHour: '',
+            partsPrice: '',
             totalHour: sum.hours,
             cash: sum.cash,
             finalPay: sum.finalPay,
         })
     return jobs
 }
-
-    // if(!techs.length) return <div>Loading</div>
-    console.log('techs => ', techs);
     
     return (
         <Header>
-            <Logo src='assets/logo/VFix-logo-larg.svg' />
+
             <TechnicianForm onSubmit={handleSearchSubmit}>
                     <FormControl>
                         <InputLabel>Technician</InputLabel>
@@ -191,16 +188,8 @@ const Header = styled.header`
     display: grid;
     padding: 30px 5px 80px 5px;
     font-size: 14px;
-    grid-template-columns: 15% 85% ;
+    grid-template-columns: 100%;
     align-items: center;
-`
-
-
-const Logo = styled.img`
-	cursor: pointer;
-	width: 10em;
-	height: 5em;
-    margin: 0 auto;
 `
 const TechnicianForm = styled.form`
     display: grid;

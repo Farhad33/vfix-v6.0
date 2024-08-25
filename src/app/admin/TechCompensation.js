@@ -37,8 +37,6 @@ export default function TechCompensation({ open, setOpen, technicianRate, techni
 
 
         if(futureJobs) {
-            console.log('futureJobs => ', futureJobs);
-            console.log('strapiTechID => ', strapiTechID);
             // update technicians
             let dataTech = {  
                 technicianRateMode: mode,

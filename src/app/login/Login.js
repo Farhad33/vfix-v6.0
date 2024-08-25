@@ -33,7 +33,7 @@ export default function Login() {
         })
         .then(response => {
             sessionStorage.setItem("jwt", response.data.jwt);
-            push.push('/admin')
+            push('/admin')
         })
         .catch(error => {
             console.log('An error occurred:', error.response);
